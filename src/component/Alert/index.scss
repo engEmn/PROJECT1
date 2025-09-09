@@ -1,0 +1,72 @@
+
+// $bordercolor:rgba(255,25,0,0.322);
+// $bgcolor:rgba(192 29 29/15%);
+// $color:#ef8d8dfa;
+
+$debg:rgb(29 31 32 / 71%);
+$decolor:#c8c8c8;
+$deborder:#c8c8c8;
+
+$infbg:rgb(100 100 255 / 8%);
+$infcolor:#bcc0ff;
+$infborder:#646cff;
+
+$warnbg:rgb(255 197 23 / 5%);
+$warncolor:#fcd253;
+$warnborder:rgba(255,213,0,0.793);
+
+$errbg:rgb(192 29 29 / 15%);
+$errcolor:#ef8d8dfa;
+$errborder:rgba(255,25,0,0.322);
+
+$succbg:rgb(29 31 32 / 71%);
+$succcolor:#7acf58d6;
+$succborder:rgba(0,255,0,0.322);
+
+
+
+
+
+@mixin alert($name,$bordercolor,$bgcolor,$color){
+  .#{$name}{
+  border:2px dotted $bordercolor;
+  border-radius: 0.8rem;
+  padding: 1.3rem;
+  background-color: $bgcolor;
+  color: $color;
+  margin-bottom: 1rem;
+  .alert-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+    .title{
+    display: flex;
+    align-items: center;
+    font-size: 1.2rem;
+    } 
+    span svg{
+      margin-right: 0.8rem;
+    }
+    .close{
+      cursor: pointer;
+    }
+  p{
+    margin-top: 1.2rem;
+    font-size: .9rem;
+    font-weight: 500;
+    margin-top: 1.2rem;
+  }
+  a{
+    color: #9499ff;
+    font-weight: 600;
+  }
+
+} 
+}
+
+@include alert("alert-default" ,$deborder,$debg,$decolor);
+@include alert("alert-info" ,$infborder,$infbg,$infcolor);
+@include alert("alert-waring" ,$warnborder,$warnbg,$warncolor);
+@include alert("alert-error" ,$errborder,$errbg,$errcolor);
+@include alert("alert-success" ,$succborder,$succbg,$succcolor);
